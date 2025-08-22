@@ -302,98 +302,111 @@ img {
 }
  
 /* ================== CONSULTANCY SECTION ================== */
-.consultancy {
-    background-color: var(--white);
-}
-
+/* ================== DANIŞMANLIK BÖLÜMÜ (Figma Tasarımı - DÜZELTİLMİŞ) ================== */
 .consultancy-card {
     display: flex;
-    align-items: stretch; 
-    background-color: var(#f3f3f3);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    margin-bottom: 40px;
-    position: relative; 
-    /* The flex-direction will be toggled by JS */
-    flex-direction: row; 
-}
-
-/* THIS IS THE KEY RULE FOR THE LAYOUT SWAP */
-.consultancy-card.swapped {
-    flex-direction: row-reverse;
-}
-
-.consultancy-image, .consultancy-text {
-    flex: 1;
-    min-width: 50%;
-}
-
-.consultancy-image {
+    max-width: 1130px;
+    margin: 40px auto;
+    padding: 60px;
+    align-items: center;
+    gap: 50px;
+    flex-shrink: 0;
     position: relative;
+    border-radius: 50px;
+    background: #f0f0f0;
+    box-shadow: 0 8px 12px 6px rgba(0, 0, 0, 0.15), 0 4px 4px 0 rgba(0, 0, 0, 0.30);
 }
 
-.consultancy-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.consultancy-card:nth-child(2) .consultancy-text {
+    order: -1;
 }
 
+.consultancy-text,
+.consultancy-image {
+    flex: 1;
+    min-width: 0;
+}
 
+/* === YENİ VE DÜZELTİLMİŞ KISIM BURASI === */
+
+/* YAZI BLOKLARI Konteyneri */
 .consultancy-text {
-    padding: 50px;
+    display: grid; /* Konteyneri grid yapıyoruz */
+    /* Bu, içindeki tüm elemanların aynı hücreye yerleşmesini sağlar */
+    place-items: start; 
 }
 
-
+/* YAZI BLOKLARI Stili */
 .content-block {
-    display: none;
+    /* position: absolute ve static kaldırıldı! */
+    grid-area: 1 / 1; /* Tüm blokları aynı grid hücresine (üst üste) yerleştir */
+    opacity: 0;
+    visibility: hidden; /* Gizliyken tıklanamaz olmasını sağlar */
+    transition: opacity 0.4s ease-in-out, visibility 0s 0.4s; /* Opacity animasyonu bitince gizle */
 }
 
+/* Aktif YAZI BLOĞU Stili */
 .content-block.active {
-    display: block;
+    opacity: 1;
+    visibility: visible; /* Aktifken görünür yap */
+    transition: opacity 0.4s ease-in-out; /* Görünür olurken animasyon */
 }
+
+/* === DÜZELTME BİTTİ === */
+
 
 .consultancy-text h3 {
     font-size: 2rem;
     color: var(--dark-gray);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-/* SMALLER, CENTERED ARROW STYLES */
+/* RESİM BLOKLARI (değişiklik yok) */
+.consultancy-image {
+    position: relative;
+    height: 370px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+.card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+.card-image.active {
+    opacity: 1;
+}
+
+/* OK STİLLERİ (değişiklik yok) */
 .swap-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    
-    width: 35px;
-    height: 35px;
-    font-size: 0.8rem;
-
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
     background-color: var(--white);
-    border: 1px solid #e0e0e0;
+    border: none;
     border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     cursor: pointer;
     z-index: 10;
     color: var(--primary-blue);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease;
 }
-
-.swap-arrow:hover {
-    transform: translateY(-50%) scale(1.1);
-}
-
-.swap-arrow.left-arrow { 
-    left: 50%; 
-    margin-left: -17.5px; 
-}
+.swap-arrow.left-arrow,
 .swap-arrow.right-arrow { 
-    right: 50%; 
-    margin-right: -17.5px;
+    left: calc(50% - 20px); 
 }
+
+
 
 /* ================== CTA SECTION ================== */
 
@@ -570,18 +583,27 @@ img {
     }
     .consultancy-card {
         flex-direction: column;
+        padding: 40px;
+        gap: 30px; /* Resim ve yazı arasına boşluk koy */
+        max-width: 604px;
+        align-items: stretch;
+        border-radius: 50px;
+        background-color: #f3f3f3;
+        box-shadow: 0 8px 12px 6px rgba(0, 0, 0, 0.15),0 4px 4px 0 rgba(0, 0, 0, 0.30);
     }
     .consultancy-card.swapped {
         flex-direction: column;
     }
     .consultancy-card:nth-child(2) .consultancy-text {
-        order: 1;
+        order: 0;
     }
      .consultancy-card:nth-child(2) .consultancy-image {
         order: 2;
+        height:240px;
     }
-    .swap-arrow {
-        display: none;
+    
+    .swap-arrow i {
+        font-size: 1em;;
     }
     .cta .container {
         flex-direction: column;
@@ -688,8 +710,14 @@ img {
     .solutions-grid {
         grid-template-columns: 1fr;
     }
-    .consultancy-text {
-        padding: 30px;
+    .consultancy-card {
+        padding: 30px 20px; /* Mobilde iç boşluğu daha da azalt */
+        gap: 25px; /* Resim ve yazı arasına boşluk */
+        max-width: 90%;
+    }
+    .consultancy-text h3,
+    .consultancy-text p {
+       text-align: center;
     }
     .footer-grid {
         grid-template-columns: 1fr;
