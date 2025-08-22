@@ -50,51 +50,33 @@ document.addEventListener('DOMContentLoaded', function() {
         setInterval(nextSlide, slideInterval);
     }
  
-    // ================= CONSULTANCY CARD LAYOUT, TEXT, AND ARROW SWAP ==================
-    const swapArrows = document.querySelectorAll('.swap-arrow');
+    // =================== DANIŞMANLIK KARTI İÇERİK DEĞİŞTİRME (Figma) ===================
+const swapArrows = document.querySelectorAll('.swap-arrow');
 
-    swapArrows.forEach(arrow => {
-        arrow.addEventListener('click', () => {
-            const card = arrow.closest('.consultancy-card');
-            if (card) {
-                
-                // ACTION 1: Toggle the class to flip the layout (image and text)
-                card.classList.toggle('swapped');
+swapArrows.forEach(arrow => {
+    arrow.addEventListener('click', () => {
+        const card = arrow.closest('.consultancy-card');
+        if (!card) return;
 
-                // ACTION 2: Find the text container and swap the content
-                const textContainer = card.querySelector('.consultancy-text');
-                if (textContainer) {
-                    const contentBlocks = textContainer.querySelectorAll('.content-block');
-                    
-                    let activeIndex = -1;
-                    contentBlocks.forEach((block, index) => {
-                        if (block.classList.contains('active')) {
-                            activeIndex = index;
-                        }
-                    });
-                    
-                    if (activeIndex !== -1) {
-                        contentBlocks[activeIndex].classList.remove('active');
-                    }
-                    
-                    const nextIndex = (activeIndex + 1) % contentBlocks.length;
-                    contentBlocks[nextIndex].classList.add('active');
-                }
+        // Kart içindeki tüm yazı ve resim bloklarını bul
+        const contentBlocks = card.querySelectorAll('.content-block');
+        const images = card.querySelectorAll('.card-image');
+        
+        // Şu anki aktif olanın indeksini bul
+        let currentIndex = Array.from(contentBlocks).findIndex(block => block.classList.contains('active'));
+        
+        // Mevcut aktif sınıfları kaldır
+        contentBlocks[currentIndex].classList.remove('active');
+        images[currentIndex].classList.remove('active');
 
-                // ACTION 3: Change the arrow icon's direction
-                const arrowIcon = arrow.querySelector('i'); // Get the <i> element inside the button
-                
-                if (arrowIcon.classList.contains('fa-chevron-right')) {
-                    arrowIcon.classList.remove('fa-chevron-right');
-                    arrowIcon.classList.add('fa-chevron-left');
-                } else {
-                    arrowIcon.classList.remove('fa-chevron-left');
-                    arrowIcon.classList.add('fa-chevron-right');
-                }
-            }
-        });
+        // Bir sonraki içeriğin indeksini hesapla (liste bitince başa döner)
+        const nextIndex = (currentIndex + 1) % contentBlocks.length;
+
+        // Yeni içeriklere ve resimlere aktif sınıfını ekle
+        contentBlocks[nextIndex].classList.add('active');
+        images[nextIndex].classList.add('active');
     });
-
+});
     // ==================== SUPPLIERS LOGO SLIDER (SEAMLESS LOOP) ====================
     // This is the newly added block
     const logoTrack = document.querySelector('.logo-track');
