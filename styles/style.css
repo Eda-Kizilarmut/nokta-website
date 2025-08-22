@@ -562,6 +562,12 @@ img {
     .solutions-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .logo img {
+        height: 70px; /* 120px'den küçültüldü */
+    }
+    .logo-text {
+        font-size: 0.9rem;
+    }
     .consultancy-card {
         flex-direction: column;
     }
@@ -603,6 +609,12 @@ img {
 @media (max-width: 768px) {
     body.no-scroll {
         overflow: hidden;
+    }
+    .logo img {
+        height: 50px; /* Mobil ekranlar için küçük bir boyut */
+    }
+    .logo-text {
+        font-size: 0.75rem; /* Daha küçük bir font boyutu */
     }
     .main-nav, .contact-btn {
         display: none;
