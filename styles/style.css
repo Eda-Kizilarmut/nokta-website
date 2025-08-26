@@ -608,8 +608,10 @@ img {
         font-size: 1em;;
     }
     .cta .container {
+        width: 90%;
         flex-direction: column;
         text-align: center;
+
     }
     .cta p {
         margin-bottom: 20px;
