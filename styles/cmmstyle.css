@@ -1,0 +1,435 @@
+/* ================== VARIABLES & GENERAL STYLES ================== */
+:root {
+    --primary-blue: #0894DD;
+    --dark-blue: #003366;
+    --light-gray: #f5f5f5;
+    --text-gray: #757575;
+    --dark-gray: #333;
+    --white: #ffffff;
+    --header-height: 80px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto','Times New Roman', Times, serif, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-gray);
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--dark-gray);
+    margin-bottom: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-primary:hover {
+    background-color: #0894DD;
+}
+
+.btn-light {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    border: 2px solid var(--white);
+}
+
+.btn-light:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-outline:hover {
+    background-color: var(--white);
+    color: var(--primary-blue);
+}
+
+/* ================== HEADER ================== */
+.header {
+    background-color: var(--white);
+    height: var(--header-height);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo img {
+    height: 120px; 
+}
+.logo-wrapper {
+    display: flex;            /* Yan yana diz */
+    align-items: center;      /* Dikey ortala */
+    gap: 10px;                /* Logo ile yazı arasında boşluk */
+}
+.logo-text {
+    font-size: 1rem;          /* İstediğin boyut */
+    font-weight: 500;         /* Hafif kalın yazı */
+    color: var(--text-gray); /* Markana uygun renk */
+    white-space: nowrap;      /* Alt satıra kaymasın */
+}
+.main-nav {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.main-nav ul {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li {
+    margin: 0 50px;
+}
+
+.main-nav ul li a {
+    color: var(--dark-gray);
+    font-weight: 500;
+    padding: 10px 5px;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--primary-blue);
+}
+
+.main-nav .dropdown-li {
+    position: relative;
+}
+
+.main-nav .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    padding: 10px 0;
+    flex-direction: column;
+    width: 200px;
+}
+
+.main-nav .dropdown-li:hover .dropdown-menu {
+    display: flex;
+}
+
+.main-nav .dropdown-menu li {
+    margin: 0;
+    width: 100%;
+}
+
+.main-nav .dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.main-nav .dropdown-menu li a:hover {
+    background-color: var(--light-gray);
+}
+
+.hamburger-menu, .mobile-nav {
+    display: none;
+}
+
+/* ========================================================================= */
+/* ================== YENİ EKLENEN İLETİŞİM SAYFASI STİLLERİ ================== */
+/* ========================================================================= */
+
+/* HERO BÖLÜMÜ (FOTOĞRAFLI ÜST BANNER) */
+.contact-hero {
+   
+    background-size: cover;
+    background-position: center;
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+    color: var(--white);
+    margin-top: var(--header-height); /* Header'ın arkasında kalmasını önler */
+}
+
+/* Fotoğraf üzerine karartma efekti */
+.contact-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.contact-hero p {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* ANA İÇERİK BÖLÜMÜ (FORM & HARİTA) */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Sol sütun (form) biraz daha geniş */
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* Sol Sütun: Form */
+.form-section h2, .map-section h2 {
+    font-size: 1.8rem;
+    color: var(--dark-gray);
+    margin-bottom: 10px;
+}
+
+.form-section p {
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.contact-form {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e0e0e0;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    color: var(--dark-gray);
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(8, 148, 221, 0.2);
+}
+
+.contact-form .btn-primary {
+    width: 100%; /* Submit butonunu tam genişlik yapar */
+}
+
+/* Sağ Sütun: Harita */
+.map-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.map-section h2 i {
+    color: #E63946; /* Kırmızı pin rengi */
+}
+
+.map-image {
+    margin-top: 30px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.map-image img {
+    width: 100%;
+    display: block;
+}
+
+.address-text {
+    margin-top: 25px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* RESPONSIVE AYARLAR (TABLET VE MOBİL İÇİN) */
+@media (max-width: 992px) {
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+    .contact-hero {
+        padding: 80px 0;
+    }
+    .contact-hero h1 {
+        font-size: 2.8rem;
+    }
+    .contact-form {
+        padding: 30px;
+    }
+}
+
+/* ================== FOOTER ================== */
+.footer {
+    /* Changed background to light gray, matching the image */
+    background-color: var(--light-gray); 
+    /* Changed default text color to be readable on a light background */
+    color: var(--text-gray);
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    /* This grid layout matches the visual weight in the image */
+    grid-template-columns: 2.5fr 1.5fr 1.5fr 2fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* Styling the first column with the logo and company name */
+.footer-col:first-child .logo {
+    margin-bottom: 15px;
+}
+
+.footer-col:first-child img {
+    /* Corrected logo height */
+    height: 202px; 
+    width: auto;
+}
+
+.footer-col:first-child p {
+    /* Styling the blue company name text */
+    color: var(--primary-blue);
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+/* Styling for the column headings (Biz Kimiz?, etc.) */
+.footer-col h4 {
+    color: var(--dark-gray);
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    /* Adding the underline as seen in the image */
+    border-bottom: 1px solid #ccc; 
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+    display: flex; /* Helps align icons and text properly */
+    align-items: flex-start;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-blue);
+}
+
+.footer-col ul li i {
+    margin-right: 10px;
+    margin-top: 4px; /* Aligns icon better with the text line */
+    /* Icon color will inherit from the parent text color (gray) */
+}
+
+/* Styling for the bottom bar with copyright and social icons */
+.footer-bottom {
+    border-top: 1px solid #ddd; /* Lighter border color */
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.social-icons a {
+    margin-left: 20px;
+    font-size: 1.3rem;
+    color: var(--text-gray); /* Icons should be gray, not blue */
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-blue);
+}

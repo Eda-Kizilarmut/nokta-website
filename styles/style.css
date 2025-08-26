@@ -608,8 +608,10 @@ img {
         font-size: 1em;;
     }
     .cta .container {
+        width: 90%;
         flex-direction: column;
         text-align: center;
+
     }
     .cta p {
         margin-bottom: 20px;
@@ -716,11 +718,63 @@ img {
         padding: 30px 20px; /* Mobilde iç boşluğu daha da azalt */
         gap: 25px; /* Resim ve yazı arasına boşluk */
         max-width: 90%;
+        flex-direction: column; /* Normal column düzeni */
+        position: relative; /* Swap arrow konumlandırması için */
     }
+    
+    /* Mobilde görsellerin düzgün görünmesi için */
+    .consultancy-image {
+        height: 200px; /* Mobilde sabit yükseklik ver */
+        width: 100%;
+        min-height: 200px; /* Minimum yükseklik garantisi */
+        border-radius: 20px; /* Görseldeki gibi rounded */
+        overflow: hidden;
+        position: relative;
+        order: 1; /* Her iki kartta da görseller üstte */
+    }
+    
+    .consultancy-text {
+        order: 2; /* Her iki kartta da yazılar altta */
+        margin-bottom: 50px; /* Swap arrow için alt boşluk */
+    }
+    
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    /* Swap arrow'u mobilde kartın sağ alt köşesine konumlandır */
+    .swap-arrow {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    /* Mobilde order özelliklerini sıfırla - her iki kart da aynı düzen */
+    .consultancy-card:nth-child(2) .consultancy-text {
+        order: 2; /* Yazı her zaman altta */
+    }
+    
+    .consultancy-card:nth-child(2) .consultancy-image {
+        order: 1; /* Görsel her zaman üstte */
+        height: 200px; /* Sabit yükseklik */
+    }
+    
     .consultancy-text h3,
     .consultancy-text p {
        text-align: center;
     }
+    
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
