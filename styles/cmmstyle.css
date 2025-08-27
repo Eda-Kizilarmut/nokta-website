@@ -241,7 +241,7 @@ img {
     display: grid;
     grid-template-columns: 1.2fr 1fr; /* Sol sütun (form) biraz daha geniş */
     gap: 60px;
-    align-items: flex-start;
+    align-items: end;
 }
 
 /* Sol Sütun: Form */
@@ -280,6 +280,9 @@ img {
     width: 100%;
     padding: 15px;
     border: 1px solid #e0e0e0;
+    background: var(--light-gray);
+
+
     border-radius: 12px;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
@@ -299,10 +302,17 @@ img {
 }
 
 /* Sağ Sütun: Harita */
+.map-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* İçeriği alt tarafa hizalar */
+    height: 100%;
+}
 .map-section h2 {
     display: flex;
     align-items: center;
     gap: 10px;
+     margin-bottom: 60px;
 }
 
 .map-section h2 i {
@@ -316,10 +326,12 @@ img {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.map-image img {
+.map-image iframe {
     width: 100%;
+    height: 450px; /* Yüksekliği sabit tutar, genişlik otomatik ayarlanır */
     display: block;
 }
+
 
 .address-text {
     margin-top: 25px;
@@ -328,28 +340,6 @@ img {
     text-align: center;
 }
 
-/* RESPONSIVE AYARLAR (TABLET VE MOBİL İÇİN) */
-@media (max-width: 992px) {
-
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .section-padding {
-        padding: 60px 0;
-    }
-    .contact-hero {
-        padding: 80px 0;
-    }
-    .contact-hero h1 {
-        font-size: 2.8rem;
-    }
-    .contact-form {
-        padding: 30px;
-    }
-}
 
 /* ================== FOOTER ================== */
 .footer {
@@ -432,4 +422,129 @@ img {
 
 .social-icons a:hover {
     color: var(--primary-blue);
+}
+/* RESPONSIVE AYARLAR (TABLET VE MOBİL İÇİN) */
+@media (max-width: 992px) {
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+     .solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .logo img {
+        height: 70px; /* 120px'den küçültüldü */
+    }
+    .logo-text {
+        font-size: 0.9rem;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-col {
+        text-align: center;
+    }
+    .footer-col .logo {
+        display: inline-block;
+    }
+    .footer-col ul li {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+      body.no-scroll {
+        overflow: hidden;
+    }
+    .logo img {
+        height: 50px; /* Mobil ekranlar için küçük bir boyut */
+    }
+    .logo-text {
+        font-size: 0.75rem; /* Daha küçük bir font boyutu */
+    }
+    .main-nav, .contact-btn {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        color: var(--dark-gray);
+        cursor: pointer;
+    }
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: var(--white);
+        z-index: 1001;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.4s ease-in-out;
+    }
+    .mobile-nav.active {
+        right: 0;
+    }
+    .mobile-nav ul {
+        text-align: center;
+    }
+    .mobile-nav ul li {
+        margin: 20px 0;
+    }
+    .mobile-nav ul li a {
+        font-size: 2rem;
+        color: var(--dark-gray);
+    }
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 3rem;
+        color: var(--dark-gray);
+        cursor: pointer;
+    }
+    .mobile-contact-info {
+        text-align: center;
+        margin-top: 40px;
+        color: var(--dark-gray);
+    }
+    .mobile-contact-info .social-icons {
+        margin-top: 20px;
+    }
+    .mobile-contact-info .social-icons a {
+        color: var(--dark-gray);
+        font-size: 1.5rem;
+    }
+    .section-padding {
+        padding: 60px 0;
+    }
+    .contact-hero {
+        padding: 80px 0;
+    }
+    .contact-hero h1 {
+        font-size: 2.8rem;
+    }
+    .contact-form {
+        padding: 30px;
+    }
+     .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-col ul {
+        padding-left: 0;
+    }
+    .footer-bottom {
+        flex-direction: column;
+    }
+    .footer-bottom p {
+        margin-bottom: 15px;
+    }
 }
