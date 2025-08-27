@@ -1,6 +1,15 @@
 // Wait for the DOM to be fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', function() {
 
+  const contactButton = document.querySelector(".contact-btn");
+
+  if (contactButton) {
+    contactButton.addEventListener("click", function (event) {
+      event.preventDefault(); // "#" tıklanınca sayfa yenilenmesin
+      window.location.href = "cmm.html"; // Hedef HTML sayfası
+    });
+  }
+
     // ================= MOBILE NAVIGATION ==================
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const mobileNav = document.getElementById('mobile-nav');
