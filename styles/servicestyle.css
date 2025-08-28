@@ -1,0 +1,270 @@
+/* ================== VARIABLES & GENERAL STYLES ================== */
+:root {
+    --primary-blue: #0894DD;
+    --dark-blue: #003366;
+    --light-gray: #f5f5f5;
+    --text-gray: #757575;
+    --dark-gray: #333;
+    --white: #ffffff;
+    --header-height: 80px;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --card-hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Base styles (container, padding, etc. - these would typically be in a global CSS or aboutstyle.css) */
+/* For this request, I'm including them as they directly affect the layout of the services section. */
+.main-content-wrapper {
+    background-color: var(--white); /* Ensures a white background for the content area */
+    padding: 60px 0; /* Vertical padding for the content section */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ================== HERO SECTION (as provided in HTML) ================== */
+/* This styling is consistent with the image and provided HTML */
+.hero {
+    height: 60vh;
+    min-height: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    margin-top: var(--header-height); /* Pushes content down below fixed header */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* The image URL is set directly in the HTML for flexibility */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(8, 148, 221, 0.3); /* Blue tinted overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Ensures content is above the overlay */
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* ================== SERVICES PAGE SPECIFIC STYLES ================== */
+
+.services-page {
+    padding: 40px 0; /* Add some padding above and below the service cards */
+}
+
+.services-list {
+    display: grid;
+    /* For 3 columns in larger screens, matching the image */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Space between the cards */
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+}
+
+.service-card {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #30A7E3 100%); /* Blue gradient from image */
+    color: var(--white);
+    border-radius: 10px; /* Rounded corners */
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Pushes link to bottom */
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 200px; /* Ensure cards have a consistent minimum height */
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+    box-shadow: var(--card-hover-shadow);
+}
+
+.service-card i {
+    font-size: 3.5rem; /* Large icons */
+    margin-bottom: 20px;
+    color: var(--white); /* Icons should be white */
+    opacity: 0.8; /* Slightly less opaque for subtle effect */
+}
+
+.service-card h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 25px; /* Space between title and link */
+    color: var(--white); /* Title should be white */
+}
+
+.service-card .service-link {
+    color: var(--white); /* Link text white */
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-block; /* Allows padding and hover effect */
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none; /* No underline by default */
+}
+
+.service-card .service-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    color: var(--white);
+    text-decoration: underline; /* Underline on hover for clarity */
+}
+
+/* ================== CTA SECTION (as provided in HTML) ================== */
+/* This styling is consistent with the image and provided HTML */
+.cta.section-padding {
+    padding-top: 60px; /* Add some space above CTA */
+    padding-bottom: 60px; /* Add some space below CTA */
+}
+
+.cta .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1130px;
+    min-height: 155px;
+    padding: 25px 60px;
+    background: linear-gradient(to right, #f3f3f3, #b3b3b3); /* Gray gradient */
+    border-radius: 100px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px; /* Space before footer */
+}
+
+.cta p {
+    color: var(--dark-gray);
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-right: 20px;
+}
+
+.cta .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 15px 30px;
+    border-radius: 12px;
+    background-color: var(--primary-blue); /* Ensure it's the primary blue */
+    border: none; /* Remove border if primary blue is solid */
+}
+
+.cta .btn-primary i {
+    margin-right: 10px;
+    color: var(--white);
+}
+
+.cta .btn-primary:hover {
+    background-color: var(--dark-blue); /* Slightly darker blue on hover */
+}
+
+
+/* ================== RESPONSIVE STYLES ================== */
+@media (max-width: 992px) {
+    .services-list {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust for tablets */
+        gap: 25px;
+    }
+
+    .service-card {
+        padding: 25px;
+        min-height: 180px;
+    }
+
+    .service-card i {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    .service-card h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .cta .container {
+        padding: 20px 40px;
+        border-radius: 70px; /* Slightly less rounded */
+    }
+
+    .cta p {
+        font-size: 1.3rem;
+    }
+
+    .cta .btn-primary {
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        padding: 30px 0;
+    }
+
+    .services-page {
+        padding: 20px 0;
+    }
+
+    .services-list {
+        grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 20px;
+        min-height: 160px;
+    }
+
+    .service-card i {
+        font-size: 2.8rem;
+        margin-bottom: 12px;
+    }
+
+    .service-card h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .service-card .service-link {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+
+    .cta .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+        border-radius: 20px; /* More rectangular on small screens */
+        min-height: unset; /* Let height adjust to content */
+    }
+
+    .cta p {
+        margin-right: 0;
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+    }
+
+    .cta .btn-primary {
+        width: fit-content; /* Adjust button width */
+        padding: 10px 20px;
+    }
+}

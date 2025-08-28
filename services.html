@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hizmetlerimiz - Nokta Bilişim</title>
+    
+    <!-- Mevcut Stil Dosyası (Header, Footer vb. için) -->
+    <link rel="stylesheet" href="./styles/aboutstyle.css">
+    <!-- Bu Sayfaya Özel Stil Dosyası -->
+    <link rel="stylesheet" href="./styles/hizmetlerstyle.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- ======================= HEADER (AYNI) ======================= -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-wrapper">
+            <a href="#" class="logo">
+                <img src="./assets/images/noktaLogo.png" alt="Nokta Bilişim Logo">
+            </a>
+            <span class="logo-text">2007'den beri teknoloji noktanız..</span>
+        </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="aboutUs.html">Hakkımızda</a></li>
+                    <li class="dropdown-li">
+                        <a href="hizmetlerimiz.html">Hizmetlerimiz <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Sunucu Hizmetleri</a></li>
+                            <li><a href="#">Sanallaştırma</a></li>
+                            <li><a href="#">Güvenlik Hizmetleri</a></li>
+                            <li><a href="#">Network Hizmetleri</a></li>
+                            <li><a href="#">Yazılım & Web Hizmetleri</a></li>
+                            <li><a href="#">Bakım & Onarım</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#" class="btn btn-primary contact-btn">İletişim</a>
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Menüyü aç">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    <!-- ================= MOBILE NAVIGATION (AYNI) ================== -->
+    <div class="mobile-nav" id="mobile-nav">
+        <button class="close-btn" id="close-btn" aria-label="Menüyü kapat">&times;</button>
+        <ul>
+            <li><a href="aboutUs.html">Hakkımızda</a></li>
+            <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
+            <li><a href="#">İletişim</a></li>
+        </ul>
+    </div>
+
+
+    <main>
+        <!-- ======================= HERO SECTION (İÇERİK DEĞİŞTİ) ======================= -->
+        <section class="hero" style="background-image: url('https://i.imgur.com/gKj3E4x.png');">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>Hizmetlerimiz</h1>
+            </div>
+        </section>
+        
+           <!-- =======================  ANA İÇERİK ÇERÇEVESİ ======================= -->
+    <div class="main-content-wrapper">
+        <div class="container">
+            <section class="services-page">
+                <ul class="services-list">
+                    <!-- Hizmet 1 -->
+                    <li class="service-card">
+                        <i class="fa-solid fa-server"></i>
+                        <h2>Sunucu Hizmetleri</h2>
+                        <a href="#" class="service-link">&gt; İncele</a>
+                    </li>
+                    <!-- Hizmet 2 -->
+                    <li class="service-card">
+                        <i class="fa-solid fa-users-gear"></i>
+                        <h2>Sanallaştırma</h2>
+                        <a href="#" class="service-link">&gt; İncele</a>
+                    </li>
+                    <!-- Hizmet 3 -->
+                    <li class="service-card">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h2>Güvenlik Hizmetleri</h2>
+                        <a href="#" class="service-link">&gt; İncele</a>
+                    </li>
+                    <!-- Hizmet 4 -->
+                    <li class="service-card">
+                        <i class="fa-solid fa-gear"></i>
+                        <h2>Network Hizmetleri</h2>
+                        <a href="#" class="service-link">&gt; İncele</a>
+                    </li>
+                    <!-- Hizmet 5 -->
+                    <li class="service-card">
+                        <i class="fa-solid fa-code"></i>
+                        <h2>Yazılım & Web Hizmetleri</h2>
+                        <a href="#" class="service-link">&gt; İncele</a>
+                    </li>
+                    <!-- Hizmet 6 -->
+                    <li class="service-card">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <h2>Bakım/Onarım & Yedek Parça</h2>
+                        <a href="#" class="service-link">&gt; İncele</a>
+                    </li>
+                    <!-- Hizmet 7 -->
+                     <li class="service-card">
+                        <i class="fa-solid fa-rocket"></i>
+                        <h2>Dijitalleşme Hizmetleri</h2>
+                        <a href="#" class="service-link">&gt; İncele</a>
+                    </li> 
+                </ul>
+            </section>
+        <!-- ======================= CTA SECTION (AYNI) ======================= -->
+        <section class="cta section-padding">
+            <div class="container">
+                <p>Size özel teknoloji çözümlerimiz için bizimle iletişime geçin. <br> Uzman ekibimizle en uygun çözümü birlikte belirleyelim.</p>
+                <a href="#" class="btn btn-primary"> 
+                    <i class="fa-solid fa-envelope"></i> İletişime geçin
+                </a>
+            </div>
+        </section>
+    </main>
+     <!-- ======================= FOOTER (AYNI) ======================= -->
+     <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo footer-logo">
+                         <img src="./assets/images/noktafooterlogo.png" alt="Nokta Bilişim Logo">
+                    </a>
+                </div>
+                <div class="footer-col">
+                    <h4>Biz Kimiz ?</h4>
+                    <ul>
+                        <li><a href="#">Vizyonumuz</a></li>
+                        <li><a href="#">Misyonumuz</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Hizmetlerimiz</h4>
+                    <ul>
+                        <li><a href="#">Sunucu Hizmetleri</a></li>
+                        <li><a href="#">Güvenlik Hizmetleri</a></li>
+                        <li><a href="#">Network Hizmetleri</a></li>
+                        <li><a href="#">Yazılım & Web Hizmetleri</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Bize Ulaşın</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-phone"></i> +90 216 687 0607</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Üçgen Plaza İçerenköy Mah. Çayır Cad. No:7 Kat:1 34752 Ataşehir / İstanbul</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright 2025, NoktaBilişim</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
