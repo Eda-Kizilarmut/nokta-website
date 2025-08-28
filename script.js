@@ -151,5 +151,28 @@ document.addEventListener('DOMContentLoaded', function() {
             logoTrack.appendChild(clone);
         });
     }
+// Header'daki Hakkımızda butonu
+const aboutUsButton = document.querySelector('.main-nav a[href="#"]:first-child');
+if (aboutUsButton && aboutUsButton.textContent.trim() === 'Hakkımızda') {
+    aboutUsButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "aboutUs.html";
+    });
+}
 
+// Mobile navigation'daki Hakkımızda linki
+const mobileAboutUsLink = document.querySelector('.mobile-nav a[href="#"]:first-child');
+if (mobileAboutUsLink && mobileAboutUsLink.textContent.trim() === 'Hakkımızda') {
+    mobileAboutUsLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "aboutUs.html";
+        // Mobile menüyü kapat
+        const mobileNav = document.getElementById('mobile-nav');
+        const body = document.body;
+        if (mobileNav) {
+            mobileNav.classList.remove('active');
+            body.classList.remove('no-scroll');
+        }
+    });
+}
 }); // This is the final closing bracket for the DOMContentLoaded event listener
