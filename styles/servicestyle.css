@@ -6,13 +6,12 @@
     --text-gray: #757575;
     --dark-gray: #333;
     --white: #ffffff;
-    --header-height: 80px;
+    --header-height: 120px;
     --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     --card-hover-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Base styles (container, padding, etc. - these would typically be in a global CSS or aboutstyle.css) */
-/* For this request, I'm including them as they directly affect the layout of the services section. */
+
 .main-content-wrapper {
     background-color: var(--white); /* Ensures a white background for the content area */
     padding: 60px 0; /* Vertical padding for the content section */
@@ -27,8 +26,8 @@
 /* ================== HERO SECTION (as provided in HTML) ================== */
 /* This styling is consistent with the image and provided HTML */
 .hero {
-    height: 60vh;
-    min-height: 400px;
+    height: 280px;
+    min-height: 100px;
     position: relative;
     display: flex;
     align-items: center;
@@ -81,9 +80,9 @@
 }
 
 .service-card {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, #30A7E3 100%); /* Blue gradient from image */
+    background: linear-gradient(#0894DD,#045077); /* Blue gradient from image */
     color: var(--white);
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 30px; /* Rounded corners */
     padding: 30px;
     text-align: center;
     display: flex;
@@ -182,13 +181,24 @@
 /* ================== RESPONSIVE STYLES ================== */
 @media (max-width: 992px) {
     .services-list {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust for tablets */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 sütun */
         gap: 25px;
     }
 
+    /* Son eleman 2 sütunu kaplasın ve ortalansın */
+    .services-list .service-card:last-child {
+        grid-column: span 2;   /* 2 sütunu kapsa */
+        justify-self: center;  /* ortalansın */
+    }
+
     .service-card {
-        padding: 25px;
-        min-height: 180px;
+        width: 300px;
+        height: 215px;
+        max-width: 560px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .service-card i {
@@ -203,7 +213,7 @@
 
     .cta .container {
         padding: 20px 40px;
-        border-radius: 70px; /* Slightly less rounded */
+        border-radius: 70px;
     }
 
     .cta p {
@@ -215,7 +225,17 @@
     }
 }
 
+
 @media (max-width: 768px) {
+    .hero {
+        height: 450px;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
     .main-content-wrapper {
         padding: 30px 0;
     }

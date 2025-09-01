@@ -6,7 +6,7 @@
     --text-gray: #757575;
     --dark-gray: #333;
     --white: #ffffff;
-    --header-height: 80px;
+    --header-height: 120px;
 }
 
 * {
@@ -34,7 +34,7 @@ body {
 
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     color: var(--text-gray);
     margin-bottom: 40px;
 }
@@ -114,7 +114,7 @@ img {
 }
 
 .logo img {
-    height: 120px; 
+    height: 100px; 
 }
 .logo-wrapper {
     display: flex;            /* Yan yana diz */
@@ -194,8 +194,8 @@ img {
 /* ================== HERO SECTION ================== */
 .hero {
     
-    height: 60vh;
-    min-height: 400px;
+    height: 280px;
+    min-height: 100px;
     position: relative;
     display: flex;
     align-items: center;
@@ -299,7 +299,7 @@ img {
 
 .values-content h2 {
     font-size: 2.2rem;
-    color: var(--dark-gray);
+    color: var(--text-gray);
     margin-bottom: 30px;
 }
 
@@ -327,8 +327,16 @@ img {
 }
 
 .values-logo {
-    text-align: center;
+    text-align: right;
+    padding-left: 40px;
 }
+
+.values-logo img {
+    width: 350px;
+    height: auto;
+    max-width: none;
+}
+
 
 /* ================== VISION SECTION ================== */
 .vision .section-title {
@@ -468,8 +476,8 @@ img {
 
 .footer-col:first-child img {
     /* Corrected logo height */
-    height: 202px; 
-    width: auto;
+    height: 180px; 
+    width: 420px;
 }
 
 .footer-col:first-child p {
@@ -536,10 +544,44 @@ img {
     .about-grid, .values-grid {
         grid-template-columns: 1fr;
     }
-    
+
+    /* Original .values::before for tablet, keep this or adjust */
+    .values::before {
+        font-size: 6rem;
+        right: 5%;
+        /* Add or adjust opacity here to blend with the background */
+        opacity: 0.1; /* Made more transparent to let the logo show */
+        position: absolute; /* Ensure it's positioned correctly */
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Adjust for true centering */
+        z-index: 0; /* Ensure it's behind the text */
+        pointer-events: none; /* Make sure it doesn't interfere with clicks */
+        white-space: nowrap; /* Prevent "Our Values" from breaking */
+    }
+
     .values-logo {
         margin-top: 30px;
         order: -1; /* Logoyu yukarı alır */
+        text-align: center;
+        padding-left: 0;
+
+        /* --- NEW STYLES FOR TABLET LOGO --- */
+        position: absolute; /* Position it absolutely within the .values section */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center it */
+        z-index: 1; /* Place it above the ::before pseudo-element but behind content */
+        opacity: 0.2; /* Semi-transparent */
+        pointer-events: none; /* Make it non-interactive */
+        width: 100%; /* Ensure it spans the width it needs */
+        max-width: 400px; /* Or a suitable max-width */
+        height: auto;
+    }
+
+    .values-logo img {
+        width: 100%; /* Make image fill its container */
+        height: auto;
     }
 
     .vision-gallery {
@@ -548,27 +590,31 @@ img {
 
     /* === FOOTER DÜZELTMELERİ (TABLET) === */
     .footer-grid {
-        /* Logo ve linkleri 2x2'lik bir ızgaraya dizer */
         grid-template-columns: 1fr 1fr;
-        /* Sütunlar arasına boşluk ekler */
         gap: 40px 20px;
     }
 
-    
-
     .footer-col:first-child {
-        /* Sadece logo sütununu ortalamak için */
-        grid-column: 1 / -1; /* Sütunun tam genişlikte yer kaplamasını sağlar */
+        grid-column: 1 / -1;
         text-align: center;
     }
-    
+
     .footer-col:first-child img {
-        height: 150px; /* Logoyu biraz daha görünür yapalım */
+        height: 150px;
     }
 }
 
 @media (max-width: 768px) {
     /* Mobile nav adjustments from your file */
+    body.no-scroll {
+        overflow: hidden;
+    }
+    .logo img {
+        height: 50px; /* Mobil ekranlar için küçük bir boyut */
+    }
+    .logo-text {
+        font-size: 0.75rem; /* Daha küçük bir font boyutu */
+    }
     .main-nav, .contact-btn { display: none; }
     .hamburger-menu { display: block; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--dark-gray); }
     .mobile-nav { display: block; position: fixed; top: 0; right: -100%; width: 280px; height: 100%; background-color: var(--white); box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.4s ease; z-index: 1001; padding: 60px 20px 20px; }
@@ -589,41 +635,79 @@ img {
     .hero { height: 50vh; }
     .hero h1 { font-size: 2rem; }
     .hero p { font-size: 1rem; }
-    
+
     .mission-blocks { grid-template-columns: 1fr; }
-    
+
     .cta .container { flex-direction: column; text-align: center; }
     .cta p { margin-bottom: 20px; font-size: 1.2rem; }
 
+    .values {
+        position: relative; /* Crucial for positioning children absolutely */
+        overflow: hidden; /* Hide parts of logo if it overflows */
+    }
+
+    .values::before {
+        font-size: 4rem;
+        right: 2%;
+        opacity: 0.1; /* Adjusted for consistency */
+        position: absolute; /* Ensure it's positioned correctly */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    .values-logo {
+        /* --- NEW STYLES FOR MOBILE LOGO --- */
+        position: absolute; /* Position it absolutely within the .values section */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center it */
+        z-index: 1; /* Place it above the ::before pseudo-element but behind content */
+        opacity: 0.2; /* Semi-transparent */
+        pointer-events: none; /* Make it non-interactive */
+        width: 100%; /* Ensure it spans the width it needs */
+        max-width: 300px; /* Or a suitable max-width for mobile */
+        height: auto;
+        margin-top: 0; /* Reset any previous margins */
+        order: unset; /* Reset order if it was set */
+        padding-left: 0;
+    }
+
+    .values-logo img {
+        width: 100%; /* Make image fill its container */
+        height: auto;
+    }
+
     /* === FOOTER DÜZELTMELERİ (MOBİL) === */
-    .footer-grid { 
-        grid-template-columns: 1fr; /* Tüm sütunları alt alta tek sıra yapar */
-        gap: 30px; /* Alt alta gelen sütunlar arasına dikey boşluk ekler */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .footer-col {
-        text-align: center; /* Mobil görünümde her şeyin ortalanması daha temiz durur */
+        text-align: center;
     }
 
     .footer-col ul {
-        padding-left: 0; /* Liste başındaki boşluğu sıfırlar */
+        padding-left: 0;
     }
-    
+
     .footer-col h4 {
-        /* Başlıkların altındaki çizgiyi mobil için daha belirgin yapalım */
-        border-bottom: 1px solid #ccc; 
-        display: inline-block; /* Çizginin sadece metin kadar yer kaplamasını sağlar */
+        border-bottom: 1px solid #ccc;
+        display: inline-block;
         padding-bottom: 5px;
     }
 
-    /* İletişim bilgilerindeki ikonların metinle hizalanmasını sağlar */
     .footer-col ul li {
         justify-content: center;
     }
-    
-    .footer-bottom { 
-        flex-direction: column; 
-        gap: 15px; 
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
         text-align: center;
     }
 }

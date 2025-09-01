@@ -1,6 +1,15 @@
 // Wait for the DOM to be fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', function() {
 
+
+// Header'daki logo ana sayfaya yönlendirsin
+const headerLogo = document.querySelector(".logo");
+if (headerLogo) {
+    headerLogo.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = "index.html";
+    });
+}
     // ================= TÜM İLETİŞİM BUTONLARINI CMM.HTML'E BAĞLA ==================
     
     // Header'daki İletişim butonu
@@ -19,6 +28,16 @@ document.addEventListener('DOMContentLoaded', function() {
             button.addEventListener("click", function (event) {
                 event.preventDefault();
                 window.location.href = "cmm.html";
+            });
+        }
+    });
+    //Hero section'daki tüm İncele butonları
+    const heroSearchButtons = document.querySelectorAll('.hero-buttons .btn-outline');
+    heroSearchButtons.forEach(button => {
+        if (button.textContent.trim() === 'İncele') {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                window.location.href = "services.html";
             });
         }
     });
@@ -151,28 +170,57 @@ document.addEventListener('DOMContentLoaded', function() {
             logoTrack.appendChild(clone);
         });
     }
-// Header'daki Hakkımızda butonu
-const aboutUsButton = document.querySelector('.main-nav a[href="#"]:first-child');
-if (aboutUsButton && aboutUsButton.textContent.trim() === 'Hakkımızda') {
-    aboutUsButton.addEventListener("click", function (event) {
-        event.preventDefault();
-        window.location.href = "aboutUs.html";
-    });
-}
 
-// Mobile navigation'daki Hakkımızda linki
-const mobileAboutUsLink = document.querySelector('.mobile-nav a[href="#"]:first-child');
-if (mobileAboutUsLink && mobileAboutUsLink.textContent.trim() === 'Hakkımızda') {
-    mobileAboutUsLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        window.location.href = "aboutUs.html";
-        // Mobile menüyü kapat
-        const mobileNav = document.getElementById('mobile-nav');
-        const body = document.body;
-        if (mobileNav) {
-            mobileNav.classList.remove('active');
-            body.classList.remove('no-scroll');
-        }
-    });
-}
+    // Header'daki Hakkımızda butonu
+    const aboutUsButton = document.querySelector('.main-nav a[href="#"]'); // Changed selector
+    if (aboutUsButton && aboutUsButton.textContent.trim() === 'Hakkımızda') {
+        aboutUsButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "aboutUs.html";
+        });
+    }
+
+    // Mobile navigation'daki Hakkımızda linki
+    const mobileAboutUsLink = document.querySelector('.mobile-nav ul li:first-child a'); // Changed selector
+    if (mobileAboutUsLink && mobileAboutUsLink.textContent.trim() === 'Hakkımızda') {
+        mobileAboutUsLink.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "aboutUs.html";
+            // Mobile menüyü kapat
+            const mobileNav = document.getElementById('mobile-nav');
+            const body = document.body;
+            if (mobileNav) {
+                mobileNav.classList.remove('active');
+                body.classList.remove('no-scroll');
+            }
+        });
+    }
+
+    // Link "Hizmetlerimiz" in main nav to services.html (Updated)
+    const mainNavServicesLink = document.querySelector('.main-nav .dropdown-li > a');
+    if (mainNavServicesLink) {
+        mainNavServicesLink.href = 'services.html';
+        mainNavServicesLink.addEventListener("click", function(event) {
+            // event.preventDefault(); // Only prevent if you want to handle dropdown purely with JS
+            window.location.href = "services.html";
+        });
+    }
+
+    // Link "Hizmetlerimiz" in mobile nav to services.html (Updated)
+    const mobileNavServicesLink = document.querySelector('.mobile-nav ul li:nth-child(2) a');
+    if (mobileNavServicesLink) {
+        mobileNavServicesLink.href = 'services.html';
+        mobileNavServicesLink.addEventListener("click", function(event) {
+            event.preventDefault();
+            window.location.href = "services.html";
+            // Mobile menüyü kapat
+            const mobileNav = document.getElementById('mobile-nav');
+            const body = document.body;
+            if (mobileNav) {
+                mobileNav.classList.remove('active');
+                body.classList.remove('no-scroll');
+            }
+        });
+    }
+
 }); // This is the final closing bracket for the DOMContentLoaded event listener
