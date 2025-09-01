@@ -6,7 +6,7 @@
     --text-gray: #757575;
     --dark-gray: #333;
     --white: #ffffff;
-    --header-height: 80px;
+    --header-height: 120px;
 }
 
 * {
@@ -35,7 +35,7 @@ body {
 .section-title {
     text-align: center;
     font-size: 2.5rem;
-    color: var(--dark-gray);
+    color: var(--text-gray);
     margin-bottom: 40px;
 }
 
@@ -114,7 +114,7 @@ img {
 }
 
 .logo img {
-    height: 120px; 
+    height: 100px; 
 }
 .logo-wrapper {
     display: flex;            /* Yan yana diz */
@@ -359,7 +359,7 @@ img {
 
 .consultancy-text h3 {
     font-size: 2rem;
-    color: var(--dark-gray);
+    color: var(--text-gray);
     margin-bottom: 20px;
 }
 
@@ -514,8 +514,8 @@ img {
 
 .footer-col:first-child img {
     /* Corrected logo height */
-    height: 202px; 
-    width: auto;
+    height: 180px; 
+    width: 420px;
 }
 
 .footer-col:first-child p {
@@ -672,6 +672,7 @@ img {
     }
     .mobile-nav ul {
         text-align: center;
+        color: var(--text-gray);
     }
     .mobile-nav ul li {
         margin: 20px 0;

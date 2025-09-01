@@ -6,7 +6,7 @@
     --text-gray: #757575;
     --dark-gray: #333;
     --white: #ffffff;
-    --header-height: 80px;
+    --header-height: 120px;
 }
 
 * {
@@ -113,7 +113,7 @@ img {
 }
 
 .logo img {
-    height: 120px; 
+    height: 100px; 
 }
 .logo-wrapper {
     display: flex;            /* Yan yana diz */
@@ -191,10 +191,6 @@ img {
     display: none;
 }
 
-/* ========================================================================= */
-/* ================== YENİ EKLENEN İLETİŞİM SAYFASI STİLLERİ ================== */
-/* ========================================================================= */
-
 /* HERO BÖLÜMÜ (FOTOĞRAFLI ÜST BANNER) */
 .contact-hero {
    
@@ -225,7 +221,7 @@ img {
 }
 
 .contact-hero h1 {
-    font-size: 3.5rem;
+    font-size: 3.0rem;
     font-weight: 700;
     margin: 0;
 }
@@ -365,8 +361,8 @@ img {
 
 .footer-col:first-child img {
     /* Corrected logo height */
-    height: 202px; 
-    width: auto;
+    height: 180px; 
+    width: 420px;
 }
 
 .footer-col:first-child p {
