@@ -127,7 +127,7 @@
 .service-card .service-link:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
     color: var(--white);
-    text-decoration: underline; /* Underline on hover for clarity */
+    text-decoration: none; /* Underline on hover for clarity */
 }
 
 /* ================== CTA SECTION (as provided in HTML) ================== */
