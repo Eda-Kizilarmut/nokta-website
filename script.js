@@ -223,4 +223,75 @@ if (headerLogo) {
         });
     }
 
+    // ================= SERVİCES SAYFASI İNCELE BUTONLARI ==================
+// Services sayfasındaki tüm "İncele" linklerini yakala ve ilgili sayfalara yönlendir
+
+const serviceLinks = document.querySelectorAll('.service-link');
+serviceLinks.forEach((link, index) => {
+    link.addEventListener("click", function (event) {
+        event.preventDefault();
+        
+        // Her hizmet için ayrı sayfa yönlendirmesi
+        switch(index) {
+            case 0: // Sunucu Hizmetleri
+                window.location.href = "server.html";
+                break;
+            case 1: // Sanallaştırma
+                window.location.href = "virtualization.html";
+                break;
+            case 2: // Güvenlik Hizmetleri
+                window.location.href = "security.html";
+                break;
+            case 3: // Network Hizmetleri
+                window.location.href = "network.html";
+                break;
+            case 4: // Yazılım & Web Hizmetleri
+                window.location.href = "sw.html";
+                break;
+            case 5: // Bakım/Onarım & Yedek Parça
+                window.location.href = "repair.html";
+                break;
+            case 6: // Dijitalleşme Hizmetleri
+                window.location.href = "digital.html";
+                break;
+            default:
+                console.log("Bilinmeyen hizmet linki");
+        }
+    });
+});
+
+// Dropdown menüsündeki tüm hizmet linklerini yakala
+const dropdownServiceLinks = document.querySelectorAll('.dropdown-menu li a');
+dropdownServiceLinks.forEach((link, index) => {
+    link.addEventListener("click", function (event) {
+        event.preventDefault();
+        
+        // Her hizmet için ayrı sayfa yönlendirmesi
+        switch(index) {
+            case 0: // Sunucu Hizmetleri
+                window.location.href = "server.html";
+                break;
+            case 1: // Sanallaştırma
+                window.location.href = "virtualization.html";
+                break;
+            case 2: // Güvenlik Hizmetleri
+                window.location.href = "security.html";
+                break;
+            case 3: // Network Hizmetleri
+                window.location.href = "network.html";
+                break;
+            case 4: // Yazılım & Web Hizmetleri
+                window.location.href = "sw.html";
+                break;
+            case 5: // Bakım & Onarım
+                window.location.href = "repair.html";
+                break;
+            case 6: // Dijitalleşme Hizmetleri
+                window.location.href = "digital.html";
+                break;
+            default:
+                console.log("Bilinmeyen hizmet linki");
+        }
+    });
+});
 }); // This is the final closing bracket for the DOMContentLoaded event listener
